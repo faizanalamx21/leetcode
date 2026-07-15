@@ -7,7 +7,7 @@ class Solution {
         int water=0;
         while(left<right){
             if(height[left]<height[right]){
-                if(height[left]>=leftmax){
+                if(height[left]>leftmax){
                     leftmax=height[left];    
                 }
                 else{
@@ -17,7 +17,7 @@ class Solution {
             }
             
             else{
-                if(height[right]>=rightmax){
+                if(height[right]>rightmax){
                     rightmax=height[right];
                     
                 }
