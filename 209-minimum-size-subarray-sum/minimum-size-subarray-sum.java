@@ -3,25 +3,24 @@ class Solution {
         int n=nums.length;
         int low=0;
         int high=0;
+        int result=Integer.MAX_VALUE;
         int sum=0;
-        int minlength=Integer.MAX_VALUE;
-        while(high<n){
+        for(high=0;high<n;high++){
             sum+=nums[high];
             while(sum>=target){
                 int length=high-low+1;
-                minlength=Math.min(minlength,length);
+                result=Math.min(result,length);
                 sum-=nums[low];
                 low++;
             }
-            high++;
+            
+
+
         }
-        if(minlength == Integer.MAX_VALUE) {
+        if(result==Integer.MAX_VALUE){
             return 0;
         }
-        else {
-            return minlength;
-        }
-
+        return result;
         
     }
 }
