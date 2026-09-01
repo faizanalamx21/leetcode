@@ -1,6 +1,6 @@
 import java.util.Stack;
 class Solution {
-    public int[] dailyTemperatures(int[] temp) {
+    public int[] dailyTemperatures(int[] temp) {//isme next greater wala concept lagega aur indices store krenge element nahi
         int n=temp.length;
         int[] result=new int[n];
         result[n-1]=0;
