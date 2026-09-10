@@ -3,14 +3,14 @@ class Solution {
         int low=0;
         int high=arr.length-1;
         
-        while(low<high){
+        while(low<=high){
             int mid=low+(high-low)/2;
             if(arr[mid]<arr[mid+1]){//uphill hai matlab peak right side m milega
                 low=mid+1;
                 
             }
             else{
-                high=mid;//down hill matlab peak left side m milega 
+                high=mid-1;//down hill matlab peak left side m milega 
             }
             
         }
