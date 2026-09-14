@@ -1,25 +1,36 @@
 class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {
-        int rows = matrix.length;
-        int cols = matrix[0].length;
-
-        int left = 0;
-        int right = rows * cols - 1;
-
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
-
-            int value = matrix[mid / cols][mid % cols];
-
-            if (value == target) {
-                return true;
-            } else if (value < target) {
-                left = mid + 1;
-            } else {
-                right = mid - 1;
+        int low=0;//har row aur column sorted hai to har row k first value agar target s chota h to yes wrna no to pehley hm apna target row khojhney k liye last occurence of yes lagaynege
+        int high=matrix.length-1;
+        int res=-1;
+        while(low<=high){
+            int mid=low+(high-low)/2;
+            if(matrix[mid][0]<=target){
+                res=mid;//yaha hmko target row miljyega using last occurence
+                low=mid+1;
+            }
+            else{
+                high=mid-1;
             }
         }
-
+        if (res == -1) {
+            return false;
+        }
+        low=0;//fr hm us row p normal binary search lagaynge kyuki wo row ek 1D sorted array k tarah behave krega 
+        high=matrix[0].length-1;
+        while(low<=high){
+            int mid=low+(high-low)/2;
+            if(matrix[res][mid]==target){
+                return true;
+            }
+            else if(matrix[res][mid]<target){
+                low=mid+1;
+            }
+            else{
+                high=mid-1;
+            }
+        }
         return false;
+        
     }
 }
