@@ -2,6 +2,7 @@ class Solution {
     public int kthSmallest(int[][] matrix, int k) {
         int low=matrix[0][0];
         int high=matrix[matrix.length-1][matrix[0].length-1];
+        int result=0;
         if(low==0&&high==0){
             return matrix[low][high];
         }
@@ -11,13 +12,14 @@ class Solution {
             int count=ispresent(matrix,mid);
             
             if(count>=k){
+                result=mid;
                 high=mid-1;
             }
             else{
                 low=mid+1;
             }
         }
-        return low;
+        return result;
         
     }
      int ispresent(int[][] arr, int target) {
