@@ -25,20 +25,13 @@ class Solution {
         }
 
         Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
-
+        queue.add(root);//sbsey phley to root hi jyega
         while(!queue.isEmpty()) {
-
             int size = queue.size();
-
             List<Integer> level = new ArrayList<>();
-
             for(int i = 0; i < size; i++) {
-
                 TreeNode node = queue.remove();
-
                 level.add(node.val);
-
                 if(node.left != null) {
                     queue.add(node.left);
                 }
@@ -47,10 +40,8 @@ class Solution {
                     queue.add(node.right);
                 }
             }
-
             result.add(level);
         }
-
         return result;
     }
 }
